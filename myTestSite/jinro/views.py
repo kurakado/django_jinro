@@ -30,6 +30,7 @@ def index(request):
         if regist(input_name,input_pass)==True:
             free_form="登録成功"
             hn=HN.objects.get(name=input_name)
+            request.session['HN'] = hn.id
         else:
             free_form="登録失敗"
         
