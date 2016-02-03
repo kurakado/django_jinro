@@ -3,7 +3,7 @@ from django.shortcuts import render_to_response, get_object_or_404
 from jinro.models import Village,HN
 from django.http import HttpResponse, Http404
 from django.template import RequestContext
-from jinro.utils import logout,login
+from jinro.utils import logout,login,regist
 
 # Create your views here.
 def index(request):
@@ -15,18 +15,26 @@ def index(request):
         hn=None
     #ログインPOST
     if request.POST.get("command")=="login":
-#    if request.POST.get("HN"):
         if login(request)==True:
-#            free_form="ログイン成功"
             hn=HN.objects.get(name=request.POST.get("HN"))
-#            free_form="{0} : {1}".format(free_form,hn.name)
-#            free_form="{0} : {1}".format(free_form,request.session.get('HN'))
         else:
             free_form="ログイン失敗"
     #ログアウトPOST
-    if request.POST.get("command")=="logout":
+    elif request.POST.get("command")=="logout":
         logout(request)
         hn=None
+    #登録POST
+    elif request.POST.get("command")=="regist":
+        input_name=request.POST.get("HN")
+        input_pass=request.POST.get("pass")
+        if regist(input_name,input_pass)==True:
+            free_form="登録成功"
+            hn=HN.objects.get(name=input_name)
+        else:
+            free_form="登録失敗"
+        
+
+
     return render_to_response('jinro/index.html',
                               {'village_list': village_list, 'HN':hn, 'free_form':free_form},context_instance=RequestContext(request))
 

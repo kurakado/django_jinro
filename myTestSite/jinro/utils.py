@@ -18,3 +18,9 @@ def logout(request):
         return True
     except KeyError:
         return False
+
+def regist(hn,password):
+    if len(HN.objects.filter(name=hn))==0 and hn != "" and password != "":
+        HN.objects.create(name=hn,password=password)
+        return True
+    return False
