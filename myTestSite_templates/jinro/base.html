@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+ <html lang="ja">
+  <head>
+      <link rel="stylesheet" href="style.css" />
+      <title>{% block title %}My amazing site{% endblock %}</title>
+  </head>
+
+  <body>
+
+</form>
+{% if HN %}
+ログイン中 {{ HN.name }} : {{request.session }}</br>
+<form action="." method="POST">
+{% csrf_token %}
+<input type="submit" name="command" value="logout">
+</form>
+{% else %}
+ログインしてください
+<form action="." method="POST">
+{% csrf_token %}
+名前：<input type="text" name="HN">
+パスワード：<input type="text" name="pass">
+<input type="submit" name="command" value="login">
+</form>
+{% endif %}
+<hr>
+<hr>
+{% block content %}{% endblock %}
+  </body>
+ </html>

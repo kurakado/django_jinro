@@ -1,0 +1,19 @@
+{% extends "jinro/base.html" %}
+{% block title %}Jinro Top{% endblock %}
+{% block content %}
+{% if village_list %}
+    <ul>
+    village is 
+    {% for village in village_list %}
+        <li>{{village.name}}</li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No villages are available.</p>
+{% endif %}
+<a href="/jinro/register" method="get">登録</a>
+</br>
+{% if free_form %}
+    {{free_form}}
+{% endif %}
+{% endblock content%}
