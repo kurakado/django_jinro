@@ -18,7 +18,7 @@ class HN(models.Model):
     class Meta:
         db_table = "handle_name_info"
     #id
-    name=models.CharField(max_length=16)
+    name=models.CharField(max_length=16,unique=True)
     password=models.CharField(max_length=16)
 
 class Participant(models.Model):
