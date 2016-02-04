@@ -85,5 +85,5 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 TEMPLATE_DIRS = (
-    '/root/django/myTestSite_templates',
+    '/root/myDjango/myTestSite_templates',
 )

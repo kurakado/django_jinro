@@ -9,7 +9,7 @@
 
 </form>
 {% if HN %}
-ログイン中 {{ HN.name }} : {{request.session }}</br>
+ログイン中 {{ HN.name }} : {{request.session.HN }}</br>
 <form action="." method="POST">
 {% csrf_token %}
 <input type="submit" name="command" value="logout">
