@@ -40,6 +40,16 @@ def index(request):
                               {'village_list': village_list, 'HN':hn, 'free_form':free_form},context_instance=RequestContext(request))
 
 def register(request):
-    hn=HN.objects.get(id=request.session.get("HN"))
+    try:
+        hn=HN.objects.get(id=request.session.get("HN"))
+    except:
+        hn=None
     return render_to_response('jinro/register.html',{'HN':hn },context_instance=RequestContext(request))
+
+def makeVillage(request):
+    try:
+        hn=HN.objects.get(id=request.session.get("HN"))
+    except:
+        hn=None
+    return render_to_response('jinro/makeVillage.html',{'HN':hn },context_instance=RequestContext(request))
 

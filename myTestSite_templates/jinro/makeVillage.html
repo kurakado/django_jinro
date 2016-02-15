@@ -1,0 +1,20 @@
+{% extends "jinro/base.html" %}
+{% block title %}村作成{% endblock title %}
+{% block content %}
+<form action="/" method="post">
+{# リンク先を決める #}
+{# ログイン必須にする #}
+{# 未実装箇所を実装する #}
+{% csrf_token %}
+<table>
+<tbody>
+<tr><td>村名</td><td><input type="text" name="villageName"></td></tr>
+<tr><td>人数</td><td><select name="FIGPEP"><option value="8">8</option><option value="9">9</option><option value="10">10</option><option value="11">11</option><option value="12">12</option><option value="13">13</option><option value="14">14</option><option value="15">15</option><option value="16">16</option><option value="17" selected>17</option><option value="18">18</option><option value="19">19</option><option value="20">20</option><option value="21">21</option><option value="22">22</option><option value="23">23</option><option value="24">24</option><option value="25">25</option><option value="26">26</option><option value="27">27</option><option value="28">28</option><option value="29">29</option><option value="30">30</option></select></td></tr>
+<tr><td>村の宣伝文<br><font size="-1">(最大全角60文字)</font></td><td><input type="text" name="villagePR" maxlength="120" size="30"></td></tr>
+<tr><td>初日犠牲者の有無</td><td>(未実装)</td></tr>
+<tr><td>昼の時間</td><td>(未実装)</td></tr>
+<tr><td>夜の時間</td><td>(未実装)</td></tr>
+<tr><td><input type="submit" value="作成"><br><font size="-1">(未実装)</font></td></tr>
+</tbody></table>
+</form>
+{% endblock content%}

@@ -6,7 +6,7 @@ admin.autodiscover()
 urlpatterns = patterns('jinro.views',
     url(r'^$', 'index'),
     url(r'^register/$','register'),
-    url(r'^registering/$','registering'),
+    url(r'^makeVillage/$','makeVillage'),
 #    url(r'^(?P<poll_id>\d+)/$', 'detail'),
 #    url(r'^(?P<poll_id>\d+)/results/$', 'results'),
 #    url(r'^(?P<poll_id>\d+)/vote/$', 'vote'),

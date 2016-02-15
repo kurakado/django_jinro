@@ -11,13 +11,13 @@
 </form>
 {% if HN %}
 ログイン中 {{ HN.name }} : {{request.session.HN }}</br>
-<form action="." method="POST">
+<form action="/jinro/" method="POST">
 {% csrf_token %}
 <input type="submit" name="command" value="logout">
 </form>
 {% else %}
 ログインしてください
-<form action="." method="POST">
+<form action="/jinro/" method="POST">
 {% csrf_token %}
 名前：<input type="text" name="HN">
 パスワード：<input type="text" name="pass">
