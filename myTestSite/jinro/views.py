@@ -43,10 +43,3 @@ def register(request):
     hn=HN.objects.get(id=request.session.get("HN"))
     return render_to_response('jinro/register.html',{'HN':hn },context_instance=RequestContext(request))
 
-def registering(request):
-    hn=HN.objects.get(id=request.session.get("HN"))
-    new_HN=HN.objects.create(name=request.POST["HN"],password=request.POST["pass"])
-    return index(request)
-#    return render_to_response('jinro/index.html',
-#            {'free_form' : "{0} is registered".format(new_HN.name)})
-
