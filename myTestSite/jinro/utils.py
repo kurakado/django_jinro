@@ -24,3 +24,10 @@ def regist(hn,password):
         HN.objects.create(name=hn,password=password)
         return True
     return False
+
+def getHN_fromSession(request):
+    try:
+        hn=HN.objects.get(id=request.session.get("HN"))
+    except:
+        hn=None
+    return hn

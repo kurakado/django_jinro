@@ -1,0 +1,28 @@
+{% extends "jinro/base.html" %}
+{% block title %}村に遊びに行く{% endblock title %}
+{% block content %}
+<form action="/" method="post">
+{# リンク先を決める #}
+{# ログイン必須にする #}
+{# 未実装箇所を実装する #}
+{% csrf_token %}
+{% if village_list %}
+<table>
+<tbody>
+    {% for village in village_list %}
+        <tr><td><input type="radio" name="VILLAGENO" value="{{village.id}}" checked></td><td>{{village.name}}</td</tr>
+    {% endfor %}
+</tbody>
+</table>
+表示形式(未実装)<select name="DisplayFormat">
+<option value="noicon">アイコン無し形式</option>
+<option value="existicon">アイコン有り形式</option>
+</select></br>
+<input type="submit" value="村に遊びに行く">
+{% else %}
+    <p>No villages are available.</p>
+{% endif %}
+</tbody>
+</table>
+</form>
+{% endblock content%}
